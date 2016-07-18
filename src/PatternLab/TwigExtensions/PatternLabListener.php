@@ -16,7 +16,6 @@ use \PatternLab\PatternEngine\Twig\TwigUtil;
 use \Aptoma\Twig\Extension\MarkdownExtension;
 use \Aptoma\Twig\Extension\MarkdownEngine;
 
-$engine = new MarkdownEngine\MichelfMarkdownEngine();
 
 class PatternLabListener extends \PatternLab\Listener {
   
@@ -33,6 +32,8 @@ class PatternLabListener extends \PatternLab\Listener {
   * Add the extensions to the appropriate instance
   */
   public function addExtensions() {
+    
+    $engine = new MarkdownEngine\MichelfMarkdownEngine();
     
     $instance = TwigUtil::getInstance();
     $instance->addExtension(new \Twig_Extensions_Extension_Text());
