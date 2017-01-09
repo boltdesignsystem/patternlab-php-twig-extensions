@@ -15,7 +15,7 @@ namespace PatternLab\TwigExtensions;
 use \PatternLab\PatternEngine\Twig\TwigUtil;
 use \Aptoma\Twig\Extension\MarkdownExtension;
 use \Aptoma\Twig\Extension\MarkdownEngine;
-
+use \Drupal\Core\Template\Attribute;
 
 class PatternLabListener extends \PatternLab\Listener {
   
@@ -45,10 +45,12 @@ class PatternLabListener extends \PatternLab\Listener {
     }
     $instance->addExtension(new \Twig_Extensions_Extension_Array());
     $instance->addExtension(new \Twig_Extensions_Extension_Date());
-    TwigUtil::setInstance($instance);
     
+    $instance->addGlobal('attributes', new Attribute());
     $instance->addExtension(new MarkdownExtension($engine));
     
+    
+    TwigUtil::setInstance($instance);
   }
   
 }

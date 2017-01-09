@@ -20,7 +20,11 @@
   },
   "autoload": {
     "psr-0": {
-      "PatternLab\\TwigExtensions": "src/"
+      "PatternLab\\TwigExtensions": "src/",
+      "Drupal\\Component\\Render\\": "src/",
+      "Drupal\\Component\\Utility\\": "src/",
+      "Drupal\\Core\\": "src/",
+      "Drupal\\Core\\Template\\": "src/"
     }
   },
   "require": {
