@@ -45,12 +45,15 @@ class PatternLabListener extends \PatternLab\Listener {
     }
     $instance->addExtension(new \Twig_Extensions_Extension_Array());
     $instance->addExtension(new \Twig_Extensions_Extension_Date());
-    
-    $instance->addGlobal('attributes', new Attribute());
     $instance->addExtension(new MarkdownExtension($engine));
     
     
+    $instance->addFunction(new \Twig_SimpleFunction('create_attribute', array($this, 'createAttribute')));
+      
     TwigUtil::setInstance($instance);
   }
   
+  public function createAttribute($attributes = []) {
+    return new Attribute($attributes);
+  }
 }
